@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17-slim
 WORKDIR /workspace/app
 COPY build/libs/*-SNAPSHOT.jar ./app.jar
 EXPOSE 8080

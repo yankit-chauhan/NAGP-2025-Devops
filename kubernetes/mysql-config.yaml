@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS`products-db`;
+    USE `products-db`;
+    DROP TABLE IF EXISTS `products`;
+    CREATE TABLE `products`(
+     `id`INT NOT NULL AUTO_INCREMENT,
+     `name`VARCHAR(255) NOT NULL,
+     `brand`VARCHAR(255) NOT NULL,
+     `summary`VARCHAR(1000) DEFAULT NULL,
+     `description`VARCHAR(2500) DEFAULT NULL,
+     `price`DECIMAL(10,2) DEFAULT NULL,
+     `tax`DECIMAL(10,2) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    );
+    INSERT INTO products VALUES
+    (101,'iphone 13','Apple','Sample Summary 0','Sample Description 0',35655.50,10335.50),
+    (102,'iphone 14','Apple','Sample Summary 1','Sample Description 1',45655.50,14335.50),
+    (103,'iphone 14 Plus','Apple','Sample Summary 2','Sample Description 2',55655.50,19335.50),
+    (104,'iphone 14 Pro','Apple','Sample Summary 3','Sample Description 3',95655.50,24335.50),
+    (105,'S 23','Samsung','Sample Summary 4','Sample Description 4',80005.50,20334.50),
+    (106,'S 23 Ultra','Samsung','Sample Summary 5','Sample Description 5',120346.50,37335.50);
